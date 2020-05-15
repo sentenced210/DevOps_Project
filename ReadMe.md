@@ -1,3 +1,15 @@
+# DevOps_Project_Group_4
+
+This is course project for the DevOps elective course in Innopolis University, Spring 2020
+
+In this project I build devops infrastructure for maven HelloWorld app using Vagrant, VirtualBox, Ansimble, Jenkins and Docker
+
+The idea of this project it is that everyone can use this project to run DevOps infrastructure for maven projects. It easy to configure from scratch, because most steps of configurating are setting ssh keys in VMs and Jenkins. 
+
+
+# Dependencies
+
+
 # Cloning and configure repository
 1 Clone this repository
 
