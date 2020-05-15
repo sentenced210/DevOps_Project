@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('SSH transfer') {
+        stage('Deploy') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
                     continueOnError: false, failOnError: true,
@@ -40,7 +40,7 @@ pipeline {
             }
         }
 
-        stage('Deploy'){
+        stage('Release'){
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
                     continueOnError: false, failOnError: true,
