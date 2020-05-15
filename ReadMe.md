@@ -3,7 +3,21 @@
 
 2 Download artifacts and extract them into `servers/integration/jenkins_data`. Be carefully!!! In `servers/integrtion/jenkins_data` should be folders like `jobs`, `users`, `plugins` etc.
 
-3 Create a new repository on github.com You should use this type quick setup: …or push an existing repository from the command line
+3 Create a new repository on github.com
+
+4 Change origin: `git remote set-url origin your-url`
+
+5 Push to the github
+
+6 Create new branch from `master`: `git checkout -b testing`
+
+7 Push it to the origin
+
+6 Create new branch from `testing`: `git checkout -b develop`
+
+7 Push it to the origin
+
+
 
 # Run servers:
 1 Generate ssh keys:
@@ -38,10 +52,11 @@ Host devops-group4-production-vm
 - Go to the `/servers/integration/` 
 - Comment string number 50 in `/servers/integration/Vagrantfile`
 `config.vm.synced_folder "./jenkins_data", "/var/lib/jenkins", owner: "jenkins", group: "jenkins"`
-- Run vagrant up
+- Run `vagrant up`
 - After provisioning run `vagrant halt`
 - Disable comment string number 50 in `/servers/integration/Vagrantfile`
   `config.vm.synced_folder "./jenkins_data", "/var/lib/jenkins", owner: "jenkins", group: "jenkins"`
+- Run `vagrant up`
 - Go to the `/servers/testing/` and run `vagrant up`
 - Go to the `/servers/production/` and run `vagrant up`
 
@@ -51,7 +66,7 @@ Host devops-group4-production-vm
 - Connect to integration server `vagrant ssh` in directory `/servers/integration`
 - Generate ssh keys ```ssh-keygen``` without passphrase
 - Add to `~/.ssh/authorized_keys` in `testing` and `production` vms public key that you generate on the previous step. 
-  Hint: you can copy the key in `integration vm` and using command on `production` and `testing` vm `cat your_key >> ~/.ssh/authorized_keys` add key
+  Hint: you can copy the key in `integration vm` and using command on `production` and `testing` vm `echo "your_key" >> ~/.ssh/authorized_keys` add key
 - Go in web-browser on the site `localhost:8080`
 - Login, using this credentials: login - `a_nazyrov` password - `qwerty123`
 - Go to `Manage Jenkins`, `Configure System`
